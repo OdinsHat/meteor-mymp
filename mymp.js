@@ -1,21 +1,22 @@
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
 
-  Meteor.subsctribe('mymp');
+  MyMp = new Mongo.Collection('mymp');
+  
+  Session.setDefault('searching', false);
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
+  Meteor.subscribe('mymp');
+
+  Template.searchForm.events({
+    'submit form': function(event, template) {
+      event.preventDefault();
+      var postcode = template.$('input[type=text]').val();
+      if (postcode) {
+        Session.set('postcode', postcode);
+      }
     }
   });
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
+
 }
 
 if (Meteor.isServer) {
