@@ -17,9 +17,19 @@ if (Meteor.isClient) {
     'submit form': function(event, template) {
       event.preventDefault();
       var postcode = template.$('input[type=text]').val();
+
       if (postcode) {
         Session.set('postcode', postcode);
       }
+    }
+  });
+
+  Template.body.helpers({
+    mymp: function() {
+      return MyMp.find();
+    },
+    searching: function() {
+      return Session.get('searching');
     }
   });
 
