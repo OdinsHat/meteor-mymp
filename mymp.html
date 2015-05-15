@@ -3,20 +3,34 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+    <div class="container">
+        <h1>Get Details on your MP and Constituency</h1>
+        <h2>Enter your post code below</h2>
 
-  {{> searchForm }}
+        {{> searchForm }}
 
   {{> hello}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
+        {{#if searching }}
+            <p>Searching...</p>
+        {{else}}
+        <div class="">
+        {{> twfyResults }}
+        </div>
+        {{/if}}
+
+        <!--
+        <div class="">
+        {{> guardianResults }}
+        </div>
+        -->
+    </div>
+</body>
 
 <template name="searchForm">
     <form>
         <input type="text" name="postcode" id="postcode" />
+        <input type="submit" value="Search" />
     </form>
 </template>
