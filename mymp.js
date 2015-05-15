@@ -1,10 +1,17 @@
 if (Meteor.isClient) {
 
   MyMp = new Mongo.Collection('mymp');
-  
+
   Session.setDefault('searching', false);
 
-  Meteor.subscribe('mymp');
+  Tracker.autorun(function(){
+    if(Session.get('postcode')){
+      var twfyHandle = Meteor.subscribe('twfySearch', Session.get('postcode'));
+      Session.set('searching', ! twfyHandle.ready());
+    }
+  });
+
+
 
   Template.searchForm.events({
     'submit form': function(event, template) {
