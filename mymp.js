@@ -40,4 +40,28 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
   });
+
+  Meteor.publish('twfySearch', function(postcode){
+
+    console.log(postcode);
+    var self = this;
+    var APIKEY = '';
+
+    try {
+      var resp = HTTP.get('http://www.theyworkforyou.com/api/getMP', {
+        params: {
+          'postcode': postcode,
+          'output': 'js',
+          'key': APIKEY
+        }
+      });
+      console.log(resp);
+
+      self.added('mymp', Random.id(), resp);
+      self.ready();
+
+    } catch (error) {
+      console.log(error);
+    }
+  });
 }
