@@ -7,11 +7,9 @@ if (Meteor.isClient) {
   Tracker.autorun(function(){
     if(Session.get('postcode')){
       var twfyHandle = Meteor.subscribe('twfySearch', Session.get('postcode'));
-      Session.set('searching', ! twfyHandle.ready());
+      Session.set('searching', !twfyHandle.ready());
     }
   });
-
-
 
   Template.searchForm.events({
     'submit form': function(event, template) {
@@ -37,25 +35,17 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
-
   Meteor.publish('twfySearch', function(postcode){
-
-    console.log(postcode);
     var self = this;
-    var APIKEY = '';
 
     try {
       var resp = HTTP.get('http://www.theyworkforyou.com/api/getMP', {
         params: {
           'postcode': postcode,
           'output': 'js',
-          'key': APIKEY
+          'key': TWFYAPIKEY
         }
       });
-      console.log(resp);
 
       self.added('mymp', Random.id(), resp);
       self.ready();
