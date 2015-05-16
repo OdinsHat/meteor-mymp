@@ -9,25 +9,13 @@
 
         {{> searchForm }}
 
-        <!-- 
-        <div class="">
-        {{> wikiResults }}
-        </div>
-        -->
-
         {{#if searching }}
             <p>Searching...</p>
-        {{else}}
-        <div class="">
-        {{> twfyResults }}
+        {{ else }}
+        <div class="twfy-results">
+            {{> twfyResults }}
         </div>
         {{/if}}
-
-        <!--
-        <div class="">
-        {{> guardianResults }}
-        </div>
-        -->
     </div>
 </body>
 
