@@ -35,5 +35,11 @@
 </template>
 
 <template name="twfyResults">
-    {{ mymp.data.first_name }}
+    {{#if mymp }}
+    <h2>
+        <span class="mp-name">{{ mymp.name }}</span> 
+        <span class="party-{{ mymp.party }}">{{ mymp.party }}</span>
+        <span class="constituency">{{ mymp.constituency }}</span> 
+    </h2>
+    {{/if }}
 </template>
