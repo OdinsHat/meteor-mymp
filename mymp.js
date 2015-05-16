@@ -23,15 +23,16 @@ if (Meteor.isClient) {
   });
 
   Template.body.helpers({
-    mymp: function() {
-      return MyMp.find();
-    },
     searching: function() {
       return Session.get('searching');
     }
   });
 
-
+  Template.twfyResults.helpers({
+    mymp: function() {
+      return MyMp.findOne();
+    }
+  });
 }
 
 if (Meteor.isServer) {
