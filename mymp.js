@@ -1,6 +1,6 @@
-if (Meteor.isClient) {
+MyMp = new Mongo.Collection('mp');
 
-  MyMp = new Mongo.Collection('mymp');
+if (Meteor.isClient) {
 
   Session.setDefault('searching', false);
 
