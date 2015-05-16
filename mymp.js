@@ -48,7 +48,17 @@ if (Meteor.isServer) {
         }
       });
 
-      self.added('mymp', Random.id(), resp);
+      var mp = {
+        member_id: resp.data.member_id,
+        name: resp.data.first_name + ' '  + resp.data.last_name,
+        constituency: resp.data.constituency,
+        party: resp.data.party,
+        twfy: {
+          'person-id': resp.data.person_id
+        }
+      };
+
+      self.added('mp', Random.id(), mp);
       self.ready();
 
     } catch (error) {
