@@ -1,0 +1,57 @@
+<head>
+  <title>mymp</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="text-center">MP and Constituency Lookup</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                {{> searchForm }}
+            </div>
+        </div>
+
+        {{#if searching }}
+            <p>Searching...</p>
+        {{ else }}
+        <div class="twfy-results">
+            {{> twfyResults }}
+        </div>
+        {{/if}}
+    </div>
+</body>
+
+<template name="searchForm">
+    <form class="form-inline">
+        <div class="form-group">
+            <input type="text" name="postcode" id="postcode" class="form-control" placeholder="Full UK postcode..." />
+        </div>
+        <input type="submit" value="Search" class="btn btn-default" />
+    </form>
+</template>
+
+<template name="wikiResults">
+
+</template>
+
+<template name="guardianResults">
+
+</template>
+
+<template name="twfyResults">
+    {{#if mymp }}
+    <h2 class="text-center">
+        <span class="mp-name">{{ mymp.first_name }} {{ mymp.last_name }}</span> 
+        <span class="label party-{{ mymp.party }}">{{ mymp.party }}</span>
+        <span class="constituency">{{ mymp.constituency }}</span> 
+    </h2>
+    <div class="col-xs-12 col-md-4">
+    <h3>Useful Links</h3>
+
+    </div>
+    {{/if }}
+</template>
