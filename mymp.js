@@ -1,8 +1,7 @@
-MyMp = new Mongo.Collection('mp');
-
 if (Meteor.isClient) {
 
   Session.setDefault('searching', false);
+  Session.setDefault('postcode', false);
 
   Tracker.autorun(function(){
     if(Session.get('postcode')){
