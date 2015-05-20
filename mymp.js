@@ -21,12 +21,24 @@ if (Meteor.isClient) {
     }
   });
 
+  /**
+   * Body helper methods
+   */
   Template.body.helpers({
     searching: function() {
       return Session.get('searching');
     }
   });
 
+  Template.twfySummary.helpers({
+    mymp: function() {
+      return MyMp.findOne({}, {fields: {'full_name': 1, 'party': 1, 'constituency': 1}});
+    }
+  });
+
+  /**
+   * Helper methods for the twfyResults template
+   */
   Template.twfyResults.helpers({
     mymp: function() {
       return MyMp.findOne();
