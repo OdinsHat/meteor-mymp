@@ -1,13 +1,24 @@
 <template name="twfyResults">
-    {{#if mymp }}
-    <h2 class="text-center">
-        <span class="mp-name">{{ mymp.first_name }} {{ mymp.last_name }}</span> 
-        <span class="label party-{{ mymp.party }}">{{ mymp.party }}</span>
-        <span class="constituency">{{ mymp.constituency }}</span> 
-    </h2>
-    <div class="col-xs-12 col-md-4">
-    <h3>Useful Links</h3>
-
-    </div>
-    {{/if }}
+    <h3>Your MP</h3>
+    <table class="table table-striped">
+        <tr>
+            <th>Portrait</th>
+            <td><img src="http://www.theyworkforyou.com/{{ mymp.image }}" alt="{{ mymp.full_name }}" /></td>
+        </tr>
+        {{#if mymp.has_office }}
+        <tr>
+            <th>Office/Position</th><td>{{ mymp.position }}</td>
+        </tr>
+        {{/if }}
+        <tr>
+            <th>Entered Parliament</th><td>{{ mymp.entered_house }}</td>
+        </tr>
+        <tr>
+            <th>Due To...</th><td>{{ mymp.entered_reason }}</td>
+        </tr>
+        <tr>
+            <th>Further Links</th>
+            <td><a href="http://www.theyworkforyou.com/{{ mymp.url }}">They Work For You Profile</a></td>
+        </tr>
+    </table>
 </template>
