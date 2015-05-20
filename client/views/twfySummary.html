@@ -1,0 +1,9 @@
+<template name="twfySummary">
+    {{#if mymp }}
+    <h2 class="text-center twfy-summary">
+        <span class="mp-name">{{ mymp.full_name }}</span> 
+        <span class="label party-{{ mymp.party }}">{{ mymp.party }}</span>
+        <span class="constituency">{{ mymp.constituency }}</span> 
+    </h2>
+    {{/if }}
+</template>

@@ -22,12 +22,11 @@
             </div>
         </div>
         {{ else }}
-        <div class="row">
-            <div class="col-md-4 col-xs-12 twfy-results">
-                {{> twfyResults }}
-            </div>
-            <div class="col-md-4 col-xs-12 twfy-results">
-                {{> constituencyResults }}
+            {{#if postcode }}
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    {{> twfySummary }}
+                </div>
             </div>
             <div class="col-md-4 col-xs-12 twfy-results">
                 {{> usefulLinks }}
