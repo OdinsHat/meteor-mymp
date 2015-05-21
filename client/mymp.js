@@ -27,6 +27,9 @@ if (Meteor.isClient) {
   Template.body.helpers({
     searching: function() {
       return Session.get('searching');
+    },
+    postcode: function() {
+      return Session.get('postcode');
     }
   });
 
