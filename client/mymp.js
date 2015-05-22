@@ -10,6 +10,9 @@ if (Meteor.isClient) {
     }
   });
 
+  /**
+   * Event handlers for the search form
+   */
   Template.searchForm.events({
     'submit form': function(event, template) {
       event.preventDefault();
@@ -33,6 +36,9 @@ if (Meteor.isClient) {
     }
   });
 
+  /**
+   * Helpers for the twfySummary template
+   */
   Template.twfySummary.helpers({
     mymp: function() {
       return MyMp.findOne({}, {fields: {'full_name': 1, 'party': 1, 'constituency': 1}});
