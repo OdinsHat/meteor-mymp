@@ -12,6 +12,10 @@ Meteor.publish('twfySearch', function(postcode){
 
     console.log(resp);
     var mp = resp.data;
+    if (mp.office[0].position) {
+      mp.has_office = true;
+      mp.position = mp.office[0].position;
+    }
     console.log(mp);
     self.added('mp', Random.id(), mp);
     self.ready();
