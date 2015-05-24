@@ -45,3 +45,7 @@ Meteor.publish('twfyDetail', function(personId){
     console.log(error);
   }
 });
+
+Meteor.publish('constituency', function(){
+
+});
