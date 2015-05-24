@@ -49,3 +49,7 @@ Meteor.publish('twfyDetail', function(personId){
 Meteor.publish('constituency', function(){
 
 });
+
+Meteor.publish('twfySummary', function(){
+
+});
