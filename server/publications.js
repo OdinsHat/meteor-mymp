@@ -24,3 +24,24 @@ Meteor.publish('twfySearch', function(postcode){
     console.log(error);
   }
 });
+
+
+Meteor.publish('twfyDetail', function(personId){
+  var self = this;
+
+  try {
+    var respDetail = HTTP.get('http://www.theyworkforyou.com/api/getMPInfo', {
+      params: {
+        'id': personId,
+        'output': 'js',
+        'key': TWFYAPIKEY
+      }
+    });
+
+    console.log(respDetail);
+
+    var mp = resp.data;  
+  } catch (error) {
+    console.log(error);
+  }
+});
