@@ -53,4 +53,13 @@ if (Meteor.isClient) {
       return MyMp.findOne();
     }
   });
+
+  Template.twfyDetails.helpers({
+    mymp: function() {
+      return MyMp.findOne({personId: Session.get('personId')});
+    },
+    personId: function() {
+      return Session.get('details');
+    }
+  });
 }
