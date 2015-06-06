@@ -5,6 +5,7 @@ if (Meteor.isClient) {
 
   Tracker.autorun(function(){
     if(Session.get('postcode')){
+      console.log('postcode set ' + Session.get('postcode'));
       var twfyHandle = Meteor.subscribe('twfySearch', Session.get('postcode'));
       Session.set('searching', !twfyHandle.ready());
     }
