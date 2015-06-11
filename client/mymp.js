@@ -48,7 +48,7 @@ if (Meteor.isClient) {
 
   Template.twfyDetails.helpers({
     mymp: function() {
-      return MyMp.findOne({}, {fields: {'details': 1}});
+      return MyMp.findOne({}, {fields: {'detail': 1}});
     },
     format: function(date) {
       return moment(date).calendar();
