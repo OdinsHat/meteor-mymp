@@ -3,22 +3,22 @@
     <table class="table table-striped">
         <tr>
             <th>Portrait</th>
-            <td><img src="http://www.theyworkforyou.com/{{ mymp.image }}" alt="{{ mymp.full_name }}" /></td>
+            <td><img src="http://www.theyworkforyou.com/{{ mymp.basic.image }}" alt="{{ mymp.full_name }}" /></td>
         </tr>
         {{#if mymp.has_office }}
         <tr>
-            <th>Office/Position</th><td>{{ mymp.position }}</td>
+            <th>Office/Position</th><td>{{ mymp.basic.position }}</td>
         </tr>
         {{/if }}
         <tr>
-            <th>Entered Parliament</th><td>{{ mymp.entered_house }}</td>
+            <th>Entered Parliament</th><td>{{ moment mymp.basic.entered_house }}</td>
         </tr>
         <tr>
-            <th>Due To...</th><td>{{ mymp.entered_reason }}</td>
+            <th>Due To...</th><td>{{ mymp.basic.entered_reason }}</td>
         </tr>
         <tr>
             <th>Further Links</th>
-            <td><a href="http://www.theyworkforyou.com/{{ mymp.url }}">They Work For You Profile</a></td>
+            <td><a href="http://www.theyworkforyou.com/{{ mymp.basic.url }}">They Work For You Profile</a></td>
         </tr>
     </table>
 </template>
