@@ -42,7 +42,13 @@ if (Meteor.isClient) {
    */
   Template.twfySummary.helpers({
     mymp: function() {
-      return MyMp.findOne({}, {fields: {'full_name': 1, 'party': 1, 'constituency': 1}});
+      return MyMp.findOne({}, {fields: {'basic': 1}});
+    }
+  });
+
+  Template.twfyDetails.helpers({
+    mymp: function() {
+      return MyMp.findOne({}, {fields: {'details': 1}});
     }
   });
 
