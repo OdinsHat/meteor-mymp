@@ -51,7 +51,7 @@ if (Meteor.isClient) {
       return MyMp.findOne({}, {fields: {'detail': 1}});
     },
     format: function(date) {
-      return moment(date).calendar();
+      return moment(date).fromNow();
     }
   });
 
@@ -63,16 +63,10 @@ if (Meteor.isClient) {
       return MyMp.findOne();
     },
     format: function(date) {
-      return moment(date).calendar();
-    }
-  });
-
-  Template.twfyDetails.helpers({
-    mymp: function() {
-      return MyMp.findOne({personId: Session.get('personId')});
+      return moment(date).fromNow();
     },
-    personId: function() {
-      return Session.get('details');
+    formatReason: function(reason) {
+      return reason.replace('_', ' ');
     }
   });
 }
