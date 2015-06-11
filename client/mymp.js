@@ -49,6 +49,9 @@ if (Meteor.isClient) {
   Template.twfyDetails.helpers({
     mymp: function() {
       return MyMp.findOne({}, {fields: {'details': 1}});
+    },
+    format: function(date) {
+      return moment(date).calendar();
     }
   });
 
@@ -58,6 +61,9 @@ if (Meteor.isClient) {
   Template.twfyResults.helpers({
     mymp: function() {
       return MyMp.findOne();
+    },
+    format: function(date) {
+      return moment(date).calendar();
     }
   });
 
