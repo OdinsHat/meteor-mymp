@@ -11,26 +11,41 @@ Meteor.publish('twfySearch', function(postcode){
       }
     });
 
-    mp.basic = basicMpResp.data;
-
-    if (mp.orespDetailffice) {
+    if (mp.basicMpResp) {
       mp.has_office = true;
       mp.position = mp.office[0].position;
     }
 
-    var detailMpResp = HTTP.get('http://www.theyworkforyou.com/api/getMPInfo', {
-      params: {
-      'id': mp.basic.person_id,
-      'output': 'js',
-      'key': TWFYAPIKEY
-      }
-    });
+    mp.person_id = basicMpResp.data.person_id;
 
-    mp.detail = detailMpResp.data;
+    var existing = MyMp.findOne({person_id: basicMpResp.data.person_id.toString()});
+
+    console.log(basicMpResp.data.person_id.toString());
+    console.log('EXISTING: ');
+    console.log(existing);
+    
+    if (!existing) {
+
+      mp.basic = basicMpResp.data;
 
 
-    console.log(mp);
-    self.added('mp', Random.id(), mp);
+      var detailMpResp = HTTP.get('http://www.theyworkforyou.com/api/getMPInfo', {
+        params: {
+        'id': mp.basic.person_id,
+        'output': 'js',
+        'key': TWFYAPIKEY
+        }
+      });
+
+      mp.detail = detailMpResp.data;
+
+      //console.log(mp);
+      console.log('Adding: ' + basicMpResp.data.person_id);
+      self.added('mp', basicMpResp.data.person_id.toString(), mp);
+    } else {
+      console.log('EXISTS!!!!!');
+    }
+
     self.ready();
 
   } catch (error) {
