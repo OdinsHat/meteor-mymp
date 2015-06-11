@@ -1,5 +1,13 @@
 <template name="twfyDetails">
-{{#if personId }}
-    
+{{#if mymp.detail }}
+    <h3>Details</h3>
+    <dl>
+        <dt>Select Comittees:</dt>
+        <dd>{{ mymp.detail.select_committees }}</dd>
+        <dt>Comittees Chaired:</dt>
+        <dd>{{ mymp.detail.select_committees_chair }}</dd>
+        <dt>Comments on Speeches Rank:</dt>
+        <dd>{{ mymp.detail.comments_on_speeches_rank }} / {{ mymp.detail.comments_on_speeches_rank_outof }}</dd>
+    </dl>
 {{/if }}
 </template>
