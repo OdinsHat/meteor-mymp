@@ -3,9 +3,9 @@
     <table class="table table-striped">
         <tr>
             <th>Portrait</th>
-            <td><img src="http://www.theyworkforyou.com/{{ mymp.basic.image }}" alt="{{ mymp.full_name }}" /></td>
+            <td><img src="http://www.theyworkforyou.com/{{ mymp.basic.image }}" alt="{{ mymp.basic.full_name }}" /></td>
         </tr>
-        {{#if mymp.has_office }}
+        {{#if mymp.basic.has_office }}
         <tr>
             <th>Office/Position</th><td>{{ mymp.basic.position }}</td>
         </tr>
