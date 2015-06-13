@@ -67,6 +67,9 @@ if (Meteor.isClient) {
     },
     formatReason: function(reason) {
       return reason.replace('_', ' ');
+    },
+    lower: function(text) {
+      return text.toLower();
     }
   });
 }
