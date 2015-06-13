@@ -1,24 +1,34 @@
 <template name="twfyResults">
     <h3>Your MP</h3>
-    <table class="table table-striped">
-        <tr>
-            <th>Portrait</th>
-            <td><img src="http://www.theyworkforyou.com/{{ mymp.basic.image }}" alt="{{ mymp.basic.full_name }}" /></td>
-        </tr>
-        {{#if mymp.basic.has_office }}
-        <tr>
-            <th>Office/Position</th><td>{{ mymp.basic.position }}</td>
-        </tr>
-        {{/if }}
-        <tr>
-            <th>Entered Parliament</th><td>{{ format mymp.basic.entered_house }}</td>
-        </tr>
-        <tr>
-            <th>Due To...</th><td>{{ formatReason mymp.basic.entered_reason }}</td>
-        </tr>
-        <tr>
-            <th>Further Links</th>
-            <td><a href="http://www.theyworkforyou.com/{{ mymp.basic.url }}">They Work For You Profile</a></td>
-        </tr>
+    <table class="table table-striped table-bordered table-condensed">
+        <tbody>
+            <tr>
+                <th>Portrait</th>
+                <td><img src="http://www.theyworkforyou.com/{{ mymp.basic.image }}" alt="{{ mymp.basic.full_name }}" /></td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ mymp.basic.full_name }}</td>
+            </tr>
+            <tr>
+                <th>Party</th>
+                <td class="party-cell-{{ lower mymp.basic.party }}">{{ mymp.basic.party }}</td>
+            </tr>
+            {{#if mymp.basic.has_office }}
+            <tr>
+                <th>Office/Position</th><td>{{ mymp.basic.position }}</td>
+            </tr>
+            {{/if }}
+            <tr>
+                <th>Entered Parliament</th><td>{{ format mymp.basic.entered_house }}</td>
+            </tr>
+            <tr>
+                <th>Due To...</th><td>{{ formatReason mymp.basic.entered_reason }}</td>
+            </tr>
+            <tr>
+                <th>Further Links</th>
+                <td><a href="http://www.theyworkforyou.com/{{ mymp.basic.url }}">They Work For You Profile</a></td>
+            </tr>
+        </tbody>
     </table>
 </template>
