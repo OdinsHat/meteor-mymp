@@ -1,13 +1,21 @@
 <template name="twfyDetails">
 {{#if mymp.detail }}
     <h3>Details</h3>
-    <dl>
-        <dt>Select Comittees:</dt>
-        <dd>{{ mymp.detail.select_committees }}</dd>
-        <dt>Comittees Chaired:</dt>
-        <dd>{{ mymp.detail.select_committees_chair }}</dd>
-        <dt>Comments on Speeches Rank:</dt>
-        <dd>{{ mymp.detail.comments_on_speeches_rank }} / {{ mymp.detail.comments_on_speeches_rank_outof }}</dd>
-    </dl>
+    <table class="table table-striped table-bordered table-condensed">
+        <tbody>
+            <tr>
+                <th>Select Comittees:</th>
+                <td>{{ mymp.detail.select_committees }}</td>
+            </tr>
+            <tr>
+                <th>Comittees Chaired:</th>
+                <td>{{ mymp.detail.select_committees_chair }}</td>
+            </tr>
+            <tr>
+                <th>Comments on Speeches Rank:</th>
+                <td>{{ mymp.detail.comments_on_speeches_rank }} / {{ mymp.detail.comments_on_speeches_rank_outof }}</td>
+            </tr>
+        </tbody>
+    </table>
 {{/if }}
 </template>
